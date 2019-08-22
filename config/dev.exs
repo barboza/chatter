@@ -9,11 +9,12 @@ config :chatter, Chatter.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
-signing_salt = System.get_env("LIVE_VIEW_SALT") ||
-  raise """
-  environment variabme LIVE_VIEW_SALT is missing!
-  You can set it using export LIVE_VIEW_SALT="$(mix phx.gen.secret)"
-  """
+signing_salt =
+  System.get_env("LIVE_VIEW_SALT") ||
+    raise """
+    environment variabme LIVE_VIEW_SALT is missing!
+    You can set it using export LIVE_VIEW_SALT="$(mix phx.gen.secret)"
+    """
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
