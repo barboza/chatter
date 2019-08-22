@@ -1,5 +1,12 @@
 use Mix.Config
 
+signing_salt =
+  System.get_env("LIVE_VIEW_SALT") ||
+    raise """
+    environment variabme LIVE_VIEW_SALT is missing!
+    You can set it using export LIVE_VIEW_SALT="$(mix phx.gen.secret)"
+    """
+
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
 # when generating URLs.
@@ -11,7 +18,10 @@ use Mix.Config
 # before starting your production server.
 config :chatter_web, ChatterWeb.Endpoint,
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  live_view: [
+    signing_salt: signing_salt
+  ]
 
 # ## SSL Support
 #
