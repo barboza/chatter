@@ -22,6 +22,11 @@ defmodule Chatter.Umbrella.MixProject do
   # Dependencies listed here are available only for this project
   # and cannot be accessed from applications inside the apps folder
   defp deps do
-    []
+    [
+      {:ex_check, "~> 0.10.0", only: :dev, runtime: false},
+      {:credo, "~> 1.1.3", only: :dev, runtime: false},
+      {:dialyxir, "~> 0.5.1", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.21.1", only: :dev, runtime: false}
+    ]
   end
 end
