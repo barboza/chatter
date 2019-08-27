@@ -17,6 +17,8 @@ defmodule ChatterWeb.Router do
   scope "/", ChatterWeb do
     pipe_through :browser
 
+    live "/chat/:chat", ChatLive
+
     get "/", PageController, :index
   end
 
