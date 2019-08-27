@@ -17,7 +17,8 @@ signing_salt =
 # which you should run after static files are built and
 # before starting your production server.
 config :chatter_web, ChatterWeb.Endpoint,
-  url: [host: "example.com", port: 80],
+  url: [host: "chatter-liveview.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
   live_view: [
     signing_salt: signing_salt
