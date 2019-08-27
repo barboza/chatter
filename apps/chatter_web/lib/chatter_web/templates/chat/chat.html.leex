@@ -1,0 +1,16 @@
+<h1>Sala #<%= @chat %></h1>
+<form phx-submit="change_username">
+  <input type="text" name="username" value="<%= @username %>" placeholder="Username..." style="width: 200px">
+  <input type="submit" value="Change username">
+</form>
+<div id="chat">
+  <form phx-submit="new_message">
+    <input type="text" name="message" placeholder="Send a message..." autocomplete="off">
+  </form>
+    <%= for message <- @messages do %>
+      <p>
+        <b><%= message.author %>: </b>
+        <%= message.content %>
+      </p>
+    <% end %>
+</div>
