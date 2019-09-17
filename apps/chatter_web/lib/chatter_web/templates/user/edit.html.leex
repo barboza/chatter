@@ -1,0 +1,6 @@
+<h2>Edit User: <%= @changeset.data.name %></h2>
+
+<%= render "form.html", assigns %>
+
+<span><%= live_link "Back", to: Routes.live_path(@socket, ChatterWeb.UserLive.Index) %></span>
+

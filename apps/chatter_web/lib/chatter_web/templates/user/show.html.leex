@@ -1,0 +1,8 @@
+<h2>Profile: <%= @user.name %></h2>
+
+<p>
+  <b>Username:</b> <%= @user.username %>
+</p>
+
+<span><%= live_link "Back", to: Routes.live_path(@socket, ChatterWeb.UserLive.Index) %></span>
+

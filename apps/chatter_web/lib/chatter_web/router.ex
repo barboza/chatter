@@ -17,7 +17,14 @@ defmodule ChatterWeb.Router do
   scope "/", ChatterWeb do
     pipe_through :browser
 
+    # Chat
     live "/chat/:chat", ChatLive
+
+    # Users
+    live "/users", UserLive.Index
+    live "/users/new", UserLive.New
+    live "/users/:id", UserLive.Show
+    live "/users/:id/edit", UserLive.Edit
 
     get "/", PageController, :index
   end

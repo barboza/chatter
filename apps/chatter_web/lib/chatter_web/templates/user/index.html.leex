@@ -1,0 +1,25 @@
+<h2>Users</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Username</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for user <- @users do %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.username %></td>
+        <td>
+          <%= live_link "Profile", to: Routes.live_path(@socket, ChatterWeb.UserLive.Show, user) %>
+          <%= live_link "Edit", to: Routes.live_path(@socket, ChatterWeb.UserLive.Edit, user) %>
+          <%= link "Delete", to: "#", phx_click: "delete_user", phx_value: user.id %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
