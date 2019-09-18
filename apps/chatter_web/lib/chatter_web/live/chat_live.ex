@@ -35,7 +35,7 @@ defmodule ChatterWeb.ChatLive do
   end
 
   def handle_info(%{event: "message", payload: %{message: message}}, socket) do
-    messages = [message | socket.assigns.messages]
+    messages = socket.assigns.messages ++ [message]
 
     {:noreply,
      assign(socket,

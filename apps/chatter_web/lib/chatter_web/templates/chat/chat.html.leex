@@ -4,13 +4,16 @@
   <input type="submit" value="Change username">
 </form>
 <div id="chat">
-  <form phx-submit="new_message">
-    <input type="text" name="message" placeholder="Send a message..." autocomplete="off">
-  </form>
+  <div id="messages" style="height: 450px; overflow-y: auto;" phx-hook="ScrollChat">
+
     <%= for message <- @messages do %>
       <p>
         <b><%= message.author %>: </b>
         <%= message.content %>
       </p>
     <% end %>
+  </div>
+  <form phx-submit="new_message">
+    <input type="text" name="message" placeholder="Send a message..." autocomplete="off">
+  </form>
 </div>
