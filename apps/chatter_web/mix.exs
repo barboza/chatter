@@ -38,15 +38,16 @@ defmodule ChatterWeb.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.4.9"},
+      {:phoenix_live_view, "~> 0.2.1"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
-      {:phoenix_html, "~> 2.11"},
+      {:phoenix_html, "~> 2.13"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:chatter, in_umbrella: true},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_live_view, "~> 0.1.0"}
+      {:cowboy, "~> 2.0"}
     ]
   end
 
